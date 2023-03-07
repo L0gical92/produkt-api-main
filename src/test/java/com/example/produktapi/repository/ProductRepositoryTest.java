@@ -44,17 +44,15 @@ class ProductRepositoryTest {
         String title = "En dator";
         //when
         Optional<Product> optionalProduct= underTest.findByTitle(title);
-
         //then
         assertTrue(optionalProduct.isEmpty());
         assertFalse(optionalProduct.isPresent());
         assertThrows(Exception.class,()->optionalProduct.get().getTitle());
     }
-    @Test
-    void findByTitle() {
-    }
 
     @Test
-    void findAllCategories() {
+    void returnAllDistinctCategories() {
+        List<String> categories= underTest.findAllCategories();
+        assertFalse(categories.isEmpty());
     }
 }
